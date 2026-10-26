@@ -1,0 +1,7 @@
+# Ambiente virtuale e cache di Python
+.venv/
+__pycache__/
+*.pyc
+
+# File originale ISTAT: si scarica dal link nel README
+data/*.xlsx
