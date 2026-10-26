@@ -41,22 +41,23 @@ Così il processo è ripetibile.
 Le reti neurali lavorano con numeri, non con lettere: nei passi successivi
 ogni carattere del vocabolario riceverà un numero.
 
-## Cosa ho imparato in Python
+## Note di implementazione
 
 - `pathlib.Path` per gestire i percorsi in modo che funzionino su Windows, Mac e Linux
 - `openpyxl` per leggere file Excel, con `read_only=True` per risparmiare memoria
 - `set` per eliminare i duplicati in automatico
-- i **type hint** (`-> list[str]`, `int | None`) per documentare cosa restituisce una funzione
+- **type hint** (`-> list[str]`, `int | None`) per documentare cosa restituisce ogni funzione
 - `if __name__ == "__main__":` per eseguire il codice solo quando il file viene
   lanciato direttamente, e non quando viene importato da un altro file
-- l'ambiente virtuale (`venv`) e `requirements.txt` per gestire le dipendenze
+- ambiente virtuale (`venv`) e `requirements.txt` per gestire le dipendenze
 
-## Possibili domande da colloquio
+## Domande frequenti
 
-**Perché hai messo tutto in minuscolo?**
+**Perché tutti i nomi sono in minuscolo?**
 Per ridurre il vocabolario: con maiuscole e minuscole separate il modello
 dovrebbe imparare due volte le stesse regole, con la metà dei dati per ciascuna.
+Le maiuscole vengono rimesse solo al momento di stampare i nomi generati.
 
-**Perché non hai caricato il file Excel su GitHub?**
-È un dato grezzo pubblico e scaricabile: nel repository conviene tenere il codice
+**Perché il file Excel originale non è nel repository?**
+È un dato grezzo pubblico e scaricabile: nel repository c'è il codice
 che lo trasforma e il risultato pulito, non copie di file esterni.

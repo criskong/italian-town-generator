@@ -110,32 +110,31 @@ Altri mostrano i limiti del modello:
 Per fare meglio serve un modello che guardi **più lettere indietro**:
 è l'obiettivo dei passi successivi.
 
-## Cosa ho imparato in Python
+## Note di implementazione
 
 - `zip(lettere, lettere[1:])` per accoppiare ogni elemento con il successivo
-- `[[0] * n for _ in range(n)]` per creare una tabella. Attenzione:
-  `[[0] * n] * n` crea n riferimenti **alla stessa riga**, quindi modificandone
-  una si modificano tutte
+- `[[0] * n for _ in range(n)]` per creare la tabella. La forma `[[0] * n] * n`
+  sarebbe sbagliata: crea n riferimenti **alla stessa riga**, quindi
+  modificandone una si modificherebbero tutte
 - `random.Random(seme)` per avere risultati riproducibili
 - `rng.choices(..., weights=...)` per estrarre a caso con probabilità diverse
-- `from bigrammi import ...` per riusare funzioni da un altro file
+- le funzioni sono riusate dai passi successivi con `from bigrammi import ...`
 
-## Possibili domande da colloquio
+## Domande frequenti
 
 **Cos'è un modello generativo?**
 Un modello che impara la distribuzione dei dati e può produrne di nuovi
 dello stesso tipo. Qui impara come sono fatti i nomi dei comuni e ne inventa di nuovi.
 
-**Cos'è la loss e perché si usa il logaritmo?**
-Misura quanto il modello è "sorpreso" dai dati veri. Il logaritmo trasforma
-il prodotto di tante probabilità piccole in una somma, e penalizza molto
-le previsioni sbagliate fatte con sicurezza.
+**Perché la loss usa il logaritmo?**
+Il logaritmo trasforma il prodotto di tante probabilità piccole in una somma,
+che è più stabile da calcolare, e penalizza molto le previsioni sbagliate
+fatte con sicurezza.
 
-**Perché serve un modello di riferimento casuale?**
-Senza un termine di paragone non si sa se una loss è buona o cattiva.
-Se il modello non batte il caso, non ha imparato niente.
+**A cosa serve il modello casuale nei risultati?**
+È il termine di paragone: senza, non si saprebbe se una loss è buona o cattiva.
+Se un modello non batte il caso, non ha imparato niente.
 
-**Qual è il limite principale dei bigrammi?**
-Hanno memoria di una sola lettera. Allungare la memoria contando
-(trigrammi, quadrigrammi...) fa esplodere la dimensione della tabella:
-è uno dei motivi per cui si passa alle reti neurali.
+**Perché non contare semplicemente più lettere (trigrammi, quadrigrammi)?**
+Ogni lettera in più moltiplica la dimensione della tabella per 39 e rende
+i conteggi sempre più scarsi. È uno dei motivi per cui si passa alle reti neurali.
