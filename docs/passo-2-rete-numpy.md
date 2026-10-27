@@ -123,7 +123,7 @@ Il **learning rate** è la lunghezza del passo:
 Altre regole imparate dagli esempi:
 
 - dopo la `q`, la `u` ha il **91%** di probabilità;
-- dopo la `z`, un'altra `z` ha il **31%**: è la doppia z di nomi come Pozzuoli o Arzano.
+- dopo la `z`, un'altra `z` ha il **31%**: è la doppia z di nomi come Pozzuoli.
 
 ### Perché non fa meglio dei bigrammi
 
